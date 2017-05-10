@@ -1,21 +1,17 @@
-<?php 
+<?php  
 	require_once('conexao.php');
-	session_start();
-		$nome = $_POST['nome'];
-		$idade = $_POST['idade'];
-		$senha = $_POST['senha'];
 
+	$nome 	= $_POST['nome'];
+	$idade 	= $_POST['idade'];
+	$senha 	= $_POST['senha'];
 
-		$sql = "INSERT INTO pessoas(nome, idade, senha) values('$nome', '$idade', '$senha');";
+	$sql = "INSERT INTO pessoas(nome,idade,senha) values('$nome',$idade,'$senha');";
 
+	var_dump($sql);
 	if(pg_query( $sql )){
-		echo "Usuário ".$nome." cadastrado com sucesso";
-		session_start();
-		$_SESSION['nome'] = $nome;
+		
 		header('Location: login.php');
-	} else {
-		echo "erro";
+	}else{
+		echo "Erro";
 	}
-
-	// var_dump($_POST);
- ?>
+?>
