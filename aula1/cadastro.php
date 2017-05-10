@@ -5,10 +5,10 @@
 	$idade 	= $_POST['idade'];
 	$senha 	= $_POST['senha'];
 
-	$sql = "INSERT INTO pessoas(nome,idade,senha) values('$nome',$idade,'$senha');";
 
-	var_dump($sql);
-	if(pg_query( $sql )){
+	$sql = "INSERT INTO pessoas(nome,idade,senha) values('$nome','$idade','$senha');";
+
+if(pg_query( $sql )){
 		
 		header('Location: login.php');
 	}else{
